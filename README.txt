@@ -1,5 +1,7 @@
 sakuramilkさん作成のデュアルブート用initramfsを自分向けカスタマイズしたものです。
 
+■仕様
+
 【1st ROM】
 
 ・mountするパーティション含めて全て標準仕様
@@ -18,6 +20,12 @@ ROMのupdater-scriptを以下の内容で修正する必要があります。
 　- mmcblk0p9をmmcblk0p12に変更
 　- mmcblk0p5へのカーネル書き込み部分を削除
 　- その他影響がありそうな内容を削除
+　
+■ROMの切り替え
+
+/data/boot.confへ「secondary」の文字列を記入
+2nd ROM状態で再起動を行うと、自動的に1stのROMに戻ります
+（2nd ROMの問題発生時は、再起動してみてください）
 　
 ■懸念事項
 
