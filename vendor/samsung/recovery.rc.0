@@ -15,7 +15,7 @@ on init
     mkdir /sdcard 0000 system system
     mkdir /emmc 0000 system system
     mkdir /system
-    mkdir /xdata 0771 system system
+    mkdir /data 0771 system system
     mkdir /cache 0770 system cache
     mkdir /efs
     mkdir /tmp
@@ -26,7 +26,7 @@ on init
     #mount /tmp /tmp tmpfs   
 
 	# for dualboot
-    symlink /xdata/data0 /data
+    #symlink /xdata/data0 /data
 
 on early-fs
 

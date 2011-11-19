@@ -55,7 +55,7 @@ loglevel 3
 
     mkdir /system
     mkdir /dbdata 0771 system system
-    mkdir /xdata 0771 system system
+    mkdir /data 0771 system system
     mkdir /cache 0770 system cache
     mkdir /config 0500 root root
 
@@ -162,13 +162,13 @@ on post-fs
     mkdir /xdata
 
     exec check_filesystem /dev/block/mmcblk0p10 ext4
-    mount ext4 /dev/block/mmcblk0p10 /xdata nosuid nodev noatime wait crypt discard,noauto_da_alloc
+    mount ext4 /dev/block/mmcblk0p10 /data nosuid nodev noatime wait crypt discard,noauto_da_alloc
 
     # create symbolic link for primary boot rom data dir
 
-    chown system system /xdata
-    chmod 0771 /xdata
-    symlink /xdata/data0 /data
+    chown system system /data
+    chmod 0771 /data
+    #symlink /xdata/data0 /data
 
     mkdir /data/dbdata
     chown system system /data/dbdata

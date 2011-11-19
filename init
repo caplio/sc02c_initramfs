@@ -6,6 +6,9 @@
 # check boot rom
 /sbin/busybox mount -t ext4 /dev/block/mmcblk0p10 /xdata
 if [ "`/sbin/busybox grep secondary /xdata/boot.conf`" ]; then
+  /sbin/busybox echo "" > /xdata/boot.conf
+  /sbin/busybox echo "`date` --2ndary boot" > /xdata/b.log
+  
   /sbin/busybox umount /xdata
   # secondary rom boot
   /sbin/busybox mount -t ext4 /dev/block/mmcblk0p12 /system
